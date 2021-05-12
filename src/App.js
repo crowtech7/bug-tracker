@@ -26,6 +26,7 @@ import FolderIcon from '@material-ui/icons/Folder';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 import './App.css';
+import thisIsFine from './assets/thisisfinedog.gif'
 
   const drawerWidth = 240;
 
@@ -33,6 +34,15 @@ import './App.css';
     root: {
       display: 'flex',
       backgroundColor: theme.palette.background.paper,
+    },
+    login: {
+      position: 'relative',
+      marginLeft: 0,
+      width: '100%',
+      [theme.breakpoints.up('sm')]: {
+        marginLeft: theme.spacing(1),
+        width: 'auto',
+      },
     },
     drawer: {
       [theme.breakpoints.up('sm')]: {
@@ -62,6 +72,9 @@ import './App.css';
       flexGrow: 1,
       padding: theme.spacing(3),
     },
+    logo: {
+      
+    },
   }));
 
   
@@ -83,6 +96,9 @@ import './App.css';
     const drawer = (
       <div>
         <div className={classes.toolbar} />
+        <div className={classes.logo}>
+        <img src={thisIsFine} alt="burninggif" />
+        </div>
         <Divider />
         <List component="nav" aria-label="main folders">
         <ListItem
@@ -178,10 +194,12 @@ import './App.css';
             <Typography variant="h6" noWrap>
               Bug Tracker
             </Typography>
+            <div className={classes.login}>
             <Button variant='contained'>Login</Button>
+            </div>
           </Toolbar>
         </AppBar>
-        <nav className={classes.drawer} aria-label="mailbox folders">
+        <nav className={classes.drawer} aria-label="main folders">
           {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
           <Hidden smUp implementation="css">
             <Drawer
@@ -237,6 +255,7 @@ import './App.css';
             nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
             accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
           </Typography>
+          
         </main>
       </div>
     );
